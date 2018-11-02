@@ -19,23 +19,28 @@
           <div class="col-md-4">
             <h3>Select Pizza Size:</h3>
             <select id="pizza-size">
-              <option value="Small">small</option>
-              <option value="Medium">medium</option>
-              <option value="Large">Large</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium +$2</option>
+              <option value="Large">Large +$4</option>
+              <option value="Extra Large">Extra Large +$6</option>
             </select>
           </div>
           <div class="col-md-4">
-            <h3>Select Pizza Type:</h3>
-            <select id="pizza-type">
-              <option value="normal">normal</option>
-              <option value="vegan">vegan</option>
+            <h3>Select Pizza Crust:</h3>
+            <select id="pizza-crust">
+              <option value="Normal">Normal</option>
+              <option value="Vegan">Vegan +$2</option>
+              <option value="Calzone">Calzone +$4</option>
+              <option value="Chicago Deep Dish">Chicago Deep Dish +$6</option>
             </select>
           </div>
           <div class="col-md-4">
             <h3>Select Pizza Toppings</h3>
             <select id="pizza-toppings">
-              <option value="meat lovers">meat lovers</option>
-              <option value="veggies">veggies</option>
+              <option value="Cheese">Cheese</option>
+              <option value="Pepperoni">Pepperoni +$2</option>
+              <option value="Veggies Delight">Veggies Delight +$4</option>
+              <option value="Meat Lovers">Meat Lovers +$6</option>
             </select>
           </div>
           <button type="submit" class="btn-success">Add to Order</button>
@@ -51,8 +56,8 @@
           <div class= "well">
             <div id="show-pizza">
               <h3>Size: <span class="pizza-size"></span></h3>
-              <h4>Crust: <span class="pizza-type"></span></h4>
-              <h5>Topppings: <span class="pizza-toppings"></span></h5>
+              <h4>Crust: <span class="pizza-crust"></span></h4>
+              <h5>Toppings: <span class="pizza-toppings"></span></h5>
               <div id="delete-pizza">
               </div>
             </div>

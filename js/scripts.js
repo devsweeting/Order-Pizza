@@ -42,29 +42,47 @@ Order.prototype.deletePizza = function(id) {
   return false
 }
 // Business Logic for Pizza
-function pizza(size, type, toppings) {
+function pizza(size, crust, toppings) {
   this.size = size
-  this.type = type,
+  this.crust = crust,
   this.toppings = toppings
   this.price = 8
 }
 
-pizza.prototype.findPrice = function(id) {
-  if ((this.size == "Large") && (this.type == "vegan")) {
-    this.price += 10;
-  } else if ((this.size == "Medium") && (this.type == "vegan")) {
-    this.price += 8;
-  } else if ((this.size == "Medium") && (this.toppings == "meat lovers")) {
+pizza.prototype.findPriceBySize = function(id) {
+  if (this.size == "Small") {
+    this.price += 0;
+  } else if (this.size == "Medium") {
+    this.price += 2;
+  } else if (this.size == "Large") {
     this.price += 4;
-  } else if ((this.size = "Medium") || (this.toppings == "meat lovers")) {
-    this.price +=4;
-  } else if (this.toppings == "meat lovers") {
-    this.price +=2;
-  } else if (this.size == "Small") {
-    this.price === 8
+  } else if (this.size == "Extra Large") {
+    this.price += 6;
+  }
+}
+pizza.prototype.findPriceByCrust = function(id) {
+  if (this.crust == "Normal") {
+    this.price += 0;
+  } else if (this.crust == "Vegan") {
+    this.price += 2;
+  } else if (this.crust == "Calzone") {
+    this.price += 4;
+  } else if (this.crust == "Chicago Deep Dish") {
+    this.price += 6;
   }
 }
 
+pizza.prototype.findPriceByToppings = function(id) {
+  if (this.toppings == "Cheese") {
+    this.price += 0;
+  } else if (this.toppings == "Pepperoni") {
+    this.price += 2;
+  } else if (this.toppings == "Veggies Delight") {
+    this.price += 4;
+  } else if (this.toppings == "Meat Lovers") {
+    this.price += 6;
+  }
+}
 
 // User Interface Logic
 var order = new Order();
@@ -84,7 +102,7 @@ function showPizza(pizzasId) {
   var pizza = order.findPizza(pizzasId);
   $("#show-pizza").show();
   $(".pizza-size").html(pizza.size);
-  $(".pizza-type").html(pizza.type);
+  $(".pizza-crust").html(pizza.crust);
   $(".pizza-toppings").html(pizza.toppings);
   var buttons = $("#buttons");
   buttons.empty();
@@ -107,10 +125,11 @@ $(document).ready(function() {
   $("form#new-order").submit(function(event) {
     event.preventDefault();
     var inputSize = $("#pizza-size").val();
-    var inputType = $("#pizza-type").val();
+    var inputCrust = $("#pizza-crust").val();
     var inputToppings = $("#pizza-toppings").val();
-    var newPizza = new pizza(inputSize, inputType, inputToppings);
-    newPizza.findPrice();
+    var newPizza = new pizza(inputSize, inputCrust, inputToppings);
+    newPizza.findPriceBySize();
+    newPizza.findPriceByCrust();
     order.addPizza(newPizza);
     displayOrder(order)
     console.log(order);
@@ -123,22 +142,26 @@ $(document).ready(function() {
 
 
 
-// orderOne.findPriceByType();
-// orderTwo.findPriceByType();
-// orderThree.findPriceByType();
-
 // Pizza.prototype.findPriceBySize = function(id) {
-//   if (this.size == "medium") {
+//   if (this.size == "Small") {
+//     this.price += 0;
+//   } else if (this.size == "Medium") {
+//     this.price += 2;
+//   } else if (this.size == "Large") {
+//     this.price += 4;
+//   } else if (this.size == "Extra Large") {
 //     this.price += 6;
-//   } else if (this.size == "large") {
-//     this.price += 10;
 //   }
 // }
 // Pizza.prototype.findPriceByType = function(id) {
-//   if (this.toppings == "meat lovers") {
-//     this.price += 3
+//   if (this.toppings == "Normal") {
+//     this.price += 0;
 //   } else if (this.toppings == "vegan") {
-//     this.price += 6
+//     this.price += 2;
+//   } else if (this.toppings == "Calzone") {
+//     this.price += 4;
+//   } else if (this.toppings == "Chicago Deep Dish") {
+//     this.price += 6;
 //   }
 // }
 
@@ -155,5 +178,22 @@ $(document).ready(function() {
 //     this.price +=3;
 //   } else if (this.type == "veggies") {
 //     this.price +=2;
+//   }
+// }
+
+//
+// pizza.prototype.findPrice = function(id) {
+//   if ((this.size == "Large") && (this.type == "vegan")) {
+//     this.price += 10;
+//   } else if ((this.size == "Medium") && (this.type == "vegan")) {
+//     this.price += 8;
+//   } else if ((this.size == "Medium") && (this.toppings == "meat lovers")) {
+//     this.price += 4;
+//   } else if ((this.size = "Medium") || (this.toppings == "meat lovers")) {
+//     this.price +=4;
+//   } else if (this.toppings == "meat lovers") {
+//     this.price +=2;
+//   } else if (this.size == "Small") {
+//     this.price === 8
 //   }
 // }
