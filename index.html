@@ -6,9 +6,41 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title></title>
+    <title>Order Pizza</title>
   </head>
   <body>
-    
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Dude, Where's my Pizza?</h2>
+      </div>
+      <h2>Enter Pizza Details:</h2>
+      <form class="form-group" id="new-order">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Select Pizza Size:</h3>
+            <select id="pizza-size">
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <h3>Select Pizza Type:</h3>
+            <select id="pizza-type">
+              <option value="normal">normal</option>
+              <option value="vegan">vegan</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <h3>Select Pizza Toppings</h3>
+            <select id="pizza-toppings">
+              <option value="meat lovers">meat lovers</option>
+              <option value="veggies">veggies</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Add</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>
