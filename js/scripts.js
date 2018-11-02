@@ -3,14 +3,53 @@
 // var orderTwo = new Pizza ("medium", "normal", "meat lovers");
 // var orderThree = new Pizza ("small", "normal", "meat lovers");
 
-function Pizza(size, type, toppings) {
+// Business Logic for Order
+function Order () {
+  this.pizzas = [],
+  this.currentId = 0
+}
+
+Order.prototype.addPizza = function(pizza) {
+  pizza.id = this.assignId();
+  this.pizzas.push(pizza);
+}
+
+Order.prototype.assignId = function () {
+  this.currentId += 1;
+  return this.currentId;
+}
+
+Order.prototype.findPizza = function(id) {
+  for (var i = 0; i < pizzas.length; i++) {
+    if (this.pizzas[i]) {
+      if (this.pizzas[i].id == id) {
+          return this.pizzas[i];
+      }
+    }
+  };
+  return false
+}
+
+Order.prototype.deletePizza = function(id) {
+  for (var i = 0; i < pizzas.length; i++) {
+    if (pizzas[i]) {
+      if (this.pizzas[i].id == id) {
+        delete this.pizzas[i];
+        return true;
+      }
+    }
+  };
+  return false
+}
+// Business Logic for Pizza
+function pizza(size, type, toppings) {
   this.size = size,
   this.type = type,
   this.toppings = toppings
   this.price = 8
 }
 
-Pizza.prototype.findPrice = function(id) {
+pizza.prototype.findPrice = function(id) {
   if ((this.size == "large") && (this.type == "vegan")) {
     this.price += 10;
   } else if ((this.size == "medium") && (this.type == "vegan")) {
@@ -25,15 +64,10 @@ Pizza.prototype.findPrice = function(id) {
 }
 
 
+// User Interface Logic
+var order = new Order();
+console.log(order);
 
-
-// orderOne.findPrice();
-// orderTwo.findPrice();
-// orderThree.findPrice();
-
-// var newPizza = null;
-
-// User Interface
 $(document).ready(function() {
   $("form#new-order").submit(function(event) {
     event.preventDefault();
@@ -43,10 +77,11 @@ $(document).ready(function() {
     // $("input#pizza-size").val("");
     // $("input#pizza-type").val("");
     // $("input#pizza-toppings").val("");
-    var newPizza = new Pizza(inputSize, inputType, inputToppings);
-    console.log(inputSize);
+    var newPizza = new pizza(inputSize, inputType, inputToppings);
     newPizza.findPrice();
     console.log(newPizza);
+    order.addPizza(newPizza);
+    console.log(order);
 
   })
 });
