@@ -38,12 +38,30 @@
               <option value="veggies">veggies</option>
             </select>
           </div>
-          <button type="submit" class="btn-primary">Add</button>
+          <button type="submit" class="btn-success">Add to Order</button>
         </div>
       </form>
 <!-- Order Details Below  -->
-      <ul id="pizzas">
-      </ul>
+      <div class="row">
+        <div class= "col-md-6">
+          <ul id="pizzas-ordered">
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class= "well">
+            <div id="show-pizza">
+              <h3>Size: <span class="pizza-size"></span></h3>
+              <h4>Crust: <span class="pizza-type"></span></h4>
+              <h5>Topppings: <span class="pizza-toppings"></span></h5>
+              <div id="delete-pizza">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="submit-order">
+            <button type="button" class="btn-success">Place Order</button>
+      </div>
     </div>
   </body>
 </html>

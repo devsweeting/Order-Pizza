@@ -20,7 +20,7 @@ Order.prototype.assignId = function () {
 }
 
 Order.prototype.findPizza = function(id) {
-  for (var i = 0; i < pizzas.length; i++) {
+  for (var i = 0; i < this.pizzas.length; i++) {
     if (this.pizzas[i]) {
       if (this.pizzas[i].id == id) {
           return this.pizzas[i];
@@ -70,33 +70,55 @@ pizza.prototype.findPrice = function(id) {
 var order = new Order();
 
 function displayOrder (OrdertoDisplay) {
-  var orderTotal = $("ul#pizzas");
+  var orderTotal = $("ul#pizzas-ordered");
   var htmlForOrderInfo = "";
   OrdertoDisplay.pizzas.forEach(function(pizza) {
-    htmlForOrderInfo += "<li id=" + pizza.id + ">" + pizza.size + " pizza with " + pizza.type + " crust and " + pizza.toppings + " toppings.</li>";
+    htmlForOrderInfo += "<li id=" + pizza.id + ">" +"$" + pizza.price + " " + pizza.size + " Pizza(+)</li>"
+    //  pizza with " + pizza.type + " crust and " + pizza.toppings + " toppings.
+    // <div id='buttons'></div>";
   });
   orderTotal.html(htmlForOrderInfo)
 };
 
+function showPizza(pizzasId) {
+  var pizza = order.findPizza(pizzasId);
+  $("#show-pizza").show();
+  $(".pizza-size").html(pizza.size);
+  $(".pizza-type").html(pizza.type);
+  $(".pizza-toppings").html(pizza.toppings);
+  var buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" + pizza.id + ">Delete</button>");
+}
 
+function attachPizzaListeners() {
+  $("ul#pizzas-ordered").on("click", "li", function(){
+    showPizza(this.id);
+  });
+  $("#delete-pizza").on("click", ".deleteButton", function() {
+    order.deletePizza(this.id);
+    $("#show-pizza").hide();
+    displayOrder(order);
+  });
+};
 
 $(document).ready(function() {
+  attachPizzaListeners();
   $("form#new-order").submit(function(event) {
     event.preventDefault();
     var inputSize = $("#pizza-size").val();
     var inputType = $("#pizza-type").val();
     var inputToppings = $("#pizza-toppings").val();
-    // $("input#pizza-size").val("");
-    // $("input#pizza-type").val("");
-    // $("input#pizza-toppings").val("");
     var newPizza = new pizza(inputSize, inputType, inputToppings);
     newPizza.findPrice();
-    console.log(newPizza);
     order.addPizza(newPizza);
-    console.log(order);
     displayOrder(order)
-
-  })
+    console.log(order);
+    console.log(newPizza);
+  });
+  $("#submit-order").click(function(event) {
+    alert("your order is on its way!")
+  });
 });
 
 
