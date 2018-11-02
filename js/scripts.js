@@ -31,8 +31,8 @@ Order.prototype.findPizza = function(id) {
 }
 
 Order.prototype.deletePizza = function(id) {
-  for (var i = 0; i < pizzas.length; i++) {
-    if (pizzas[i]) {
+  for (var i = 0; i < this.pizzas.length; i++) {
+    if (this.pizzas[i]) {
       if (this.pizzas[i].id == id) {
         delete this.pizzas[i];
         return true;
@@ -92,8 +92,6 @@ function displayOrder (OrdertoDisplay) {
   var htmlForOrderInfo = "";
   OrdertoDisplay.pizzas.forEach(function(pizza) {
     htmlForOrderInfo += "<li id=" + pizza.id + ">" +"$" + pizza.price + " " + pizza.size + " Pizza(+)</li>"
-    //  pizza with " + pizza.type + " crust and " + pizza.toppings + " toppings.
-    // <div id='buttons'></div>";
   });
   orderTotal.html(htmlForOrderInfo)
 };
@@ -104,9 +102,9 @@ function showPizza(pizzasId) {
   $(".pizza-size").html(pizza.size);
   $(".pizza-crust").html(pizza.crust);
   $(".pizza-toppings").html(pizza.toppings);
-  var buttons = $("#buttons");
+  var buttons = $("#delete-pizza");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" + pizza.id + ">Delete</button>");
+  buttons.append("<button class='btn btn-danger deleteButton' id=" + pizza.id + ">Delete from order</button>");
 }
 
 function attachPizzaListeners() {
@@ -139,61 +137,3 @@ $(document).ready(function() {
     alert("your order is on its way!")
   });
 });
-
-
-
-// Pizza.prototype.findPriceBySize = function(id) {
-//   if (this.size == "Small") {
-//     this.price += 0;
-//   } else if (this.size == "Medium") {
-//     this.price += 2;
-//   } else if (this.size == "Large") {
-//     this.price += 4;
-//   } else if (this.size == "Extra Large") {
-//     this.price += 6;
-//   }
-// }
-// Pizza.prototype.findPriceByType = function(id) {
-//   if (this.toppings == "Normal") {
-//     this.price += 0;
-//   } else if (this.toppings == "vegan") {
-//     this.price += 2;
-//   } else if (this.toppings == "Calzone") {
-//     this.price += 4;
-//   } else if (this.toppings == "Chicago Deep Dish") {
-//     this.price += 6;
-//   }
-// }
-
-// Pizza.prototype.findPrice = function(id) {
-//   if (this.size == "medium") {
-//     this.price += 2;
-//   } else if (this.size == "large") {
-//     this.price += 4;
-//   } else if (this.type == "vegan") {
-//     this.price += 4;
-//   } else if (this.type == "meat lovers") {
-//     this.price +=4;
-//   } else if (this.type == "meat lovers") {
-//     this.price +=3;
-//   } else if (this.type == "veggies") {
-//     this.price +=2;
-//   }
-// }
-
-//
-// pizza.prototype.findPrice = function(id) {
-//   if ((this.size == "Large") && (this.type == "vegan")) {
-//     this.price += 10;
-//   } else if ((this.size == "Medium") && (this.type == "vegan")) {
-//     this.price += 8;
-//   } else if ((this.size == "Medium") && (this.toppings == "meat lovers")) {
-//     this.price += 4;
-//   } else if ((this.size = "Medium") || (this.toppings == "meat lovers")) {
-//     this.price +=4;
-//   } else if (this.toppings == "meat lovers") {
-//     this.price +=2;
-//   } else if (this.size == "Small") {
-//     this.price === 8
-//   }
-// }
