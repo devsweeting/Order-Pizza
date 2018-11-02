@@ -43,30 +43,42 @@ Order.prototype.deletePizza = function(id) {
 }
 // Business Logic for Pizza
 function pizza(size, type, toppings) {
-  this.size = size,
+  this.size = size
   this.type = type,
   this.toppings = toppings
   this.price = 8
 }
 
 pizza.prototype.findPrice = function(id) {
-  if ((this.size == "large") && (this.type == "vegan")) {
+  if ((this.size == "Large") && (this.type == "vegan")) {
     this.price += 10;
-  } else if ((this.size == "medium") && (this.type == "vegan")) {
+  } else if ((this.size == "Medium") && (this.type == "vegan")) {
     this.price += 8;
-  } else if ((this.size == "medium") && (this.toppings == "meat lovers")) {
+  } else if ((this.size == "Medium") && (this.toppings == "meat lovers")) {
     this.price += 4;
-  } else if ((this.size = "medium") || (this.toppings == "meat lovers")) {
+  } else if ((this.size = "Medium") || (this.toppings == "meat lovers")) {
     this.price +=4;
   } else if (this.toppings == "meat lovers") {
     this.price +=2;
+  } else if (this.size == "Small") {
+    this.price === 8
   }
 }
 
 
 // User Interface Logic
 var order = new Order();
-console.log(order);
+
+function displayOrder (OrdertoDisplay) {
+  var orderTotal = $("ul#pizzas");
+  var htmlForOrderInfo = "";
+  OrdertoDisplay.pizzas.forEach(function(pizza) {
+    htmlForOrderInfo += "<li id=" + pizza.id + ">" + pizza.size + " pizza with " + pizza.type + " crust and " + pizza.toppings + " toppings.</li>";
+  });
+  orderTotal.html(htmlForOrderInfo)
+};
+
+
 
 $(document).ready(function() {
   $("form#new-order").submit(function(event) {
@@ -82,6 +94,7 @@ $(document).ready(function() {
     console.log(newPizza);
     order.addPizza(newPizza);
     console.log(order);
+    displayOrder(order)
 
   })
 });
