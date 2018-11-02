@@ -11,100 +11,90 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h2>Dude, Where's my Pizza?</h2>
+        <img src="img/pizza-logo.PNG" alt="logo" class="logo">
+        <h1>Dude, Where's my Pizza?</h1>
+
       </div>
-      <h2>Enter Pizza Details:</h2>
-      <form class="form-group" id="new-order">
-        <div class="row">
+      <div class="order-screen">
+        <h1>Enter Pizza Details:</h1>
+        <form class="form-group" id="new-order">
+          <div class="row">
 
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="pizza-img" src="img/pizza-size.PNG" alt="Pizza size">
-                  <div class="card-body">
-                    <h3>Select Pizza Size:</h3>
-                    <select id="pizza-size">
-                      <option value="Small">Small</option>
-                      <option value="Medium">Medium +$2</option>
-                      <option value="Large">Large +$4</option>
-                      <option value="Extra Large">Extra Large +$6</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="pizza-img" src="img/pizza-crust.PNG" alt="Pizza Crust">
-                  <div class="card-body">
-                    <h3>Select Pizza Crust:</h3>
-                    <select id="pizza-crust">
-                      <option value="Normal">Normal</option>
-                      <option value="Vegan">Vegan +$2</option>
-                      <option value="Calzone">Calzone +$4</option>
-                      <option value="Chicago Deep Dish">Chicago Deep Dish +$6</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-          <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-              <img class="pizza-img" src="img/pizza-toppings.PNG" alt="Pizza Toppings">
-                  <div class="card-body">
-                    <h3>Select Pizza Toppings</h3>
-                    <select id="pizza-toppings">
-                      <option value="Cheese">Cheese</option>
-                      <option value="Pepperoni">Pepperoni +$2</option>
-                      <option value="Veggies Delight">Veggies Delight +$4</option>
-                      <option value="Meat Lovers">Meat Lovers +$6</option>
-                    </select>
-                  </div>
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <img class="pizza-img" src="img/pizza-size.PNG" alt="Pizza size">
+                <div class="card-body">
+                  <h3>Select Pizza Size:</h3>
+                  <select id="pizza-size">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium +$2</option>
+                    <option value="Large">Large +$4</option>
+                    <option value="Extra Large">Extra Large +$6</option>
+                  </select>
                 </div>
               </div>
             </div>
 
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <img class="pizza-img" src="img/pizza-crust.PNG" alt="Pizza Crust">
+                <div class="card-body">
+                  <h3>Select Pizza Crust:</h3>
+                  <select id="pizza-crust">
+                    <option value="Normal">Normal</option>
+                    <option value="Vegan">Vegan +$2</option>
+                    <option value="Calzone">Calzone +$4</option>
+                    <option value="Chicago Deep Dish">Chicago Deep Dish +$6</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <!-- <div class="col-md-4">
-            <h3>Select Pizza Crust:</h3>
-            <select id="pizza-crust">
-              <option value="Normal">Normal</option>
-              <option value="Vegan">Vegan +$2</option>
-              <option value="Calzone">Calzone +$4</option>
-              <option value="Chicago Deep Dish">Chicago Deep Dish +$6</option>
-            </select>
-          </div> -->
-          <!-- <div class="col-md-4">
-            <h3>Select Pizza Toppings</h3>
-            <select id="pizza-toppings">
-              <option value="Cheese">Cheese</option>
-              <option value="Pepperoni">Pepperoni +$2</option>
-              <option value="Veggies Delight">Veggies Delight +$4</option>
-              <option value="Meat Lovers">Meat Lovers +$6</option>
-            </select>
-          </div> -->
-          <button type="submit" class="btn-success">Add to Order</button>
-        </div>
-      </form>
-<!-- Order Details Below  -->
-      <div class="row">
-        <div class= "col-md-6">
-          <ul id="pizzas-ordered">
-          </ul>
-        </div>
-        <div class="col-md-6">
-          <div class= "well">
-            <div id="show-pizza">
-              <h3>Size: <span class="pizza-size"></span></h3>
-              <h4>Crust: <span class="pizza-crust"></span></h4>
-              <h5>Toppings: <span class="pizza-toppings"></span></h5>
-              <div id="delete-pizza">
+            <div class="col-md-4">
+              <div class="card" style="width: 18rem;">
+                <img class="pizza-img" src="img/pizza-toppings.PNG" alt="Pizza Toppings">
+                <div class="card-body">
+                  <h3>Select Pizza Toppings</h3>
+                  <select id="pizza-toppings">
+                    <option value="Cheese">Cheese</option>
+                    <option value="Pepperoni">Pepperoni +$2</option>
+                    <option value="Veggies Delight">Veggies Delight +$4</option>
+                    <option value="Meat Lovers">Meat Lovers +$6</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn-success add-pizza">Add to Order</button>
+        </form>
+        <!-- Order Details Below  -->
+        <div class="row">
+          <div class= "col-md-6">
+            <div class="well">
+              <ul id="pizzas-ordered">
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class= "well">
+              <div id="show-pizza">
+                <h3>Size: <span class="pizza-size"></span></h3>
+                <h4>Crust: <span class="pizza-crust"></span></h4>
+                <h5>Toppings: <span class="pizza-toppings"></span></h5>
+                <div id="delete-pizza">
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div id="submit-order">
+          <button type="button" class="btn-info place-order">Place Order</button>
+        </div>
       </div>
-      <div id="submit-order">
-            <button type="button" class="btn-info">Place Order</button>
+
+      <div id="checkout">
+        <h1>Thanks for Ordering!</h1>
+        <button type="button" class="btn-success start-order">Start new order</button>
       </div>
     </div>
   </body>

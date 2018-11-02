@@ -133,7 +133,15 @@ $(document).ready(function() {
     console.log(order);
     console.log(newPizza);
   });
-  $("#submit-order").click(function(event) {
+  $("#submit-order").click(function() {
     alert("your order is on its way!")
+    $(".order-screen").hide();
+    $("#checkout").show();
+  });
+  
+  $("#start-order").click(function() {
+    $("#checkout").hide();
+    $(".order-screen").show();
+
   });
 });

@@ -1,4 +1,60 @@
 .pizza-img {
   height: 150px;
   width: 300px;
+  margin-top: 40px;
+}
+
+.card, {
+  margin-top: 30px;
+  border: : 1px black solid;
+}
+
+.logo {
+  float: left;
+  height: 200px;
+}
+
+.jumbotron {
+  background-color: #FF8655;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  height: 250px;
+  /* background-image: url(https://www.slicktext.com/blog/wp-content/uploads/2013/09/iStock_000013418237Medium-600x398.jpg);
+  background-position: 0% 1%;
+  background-size: cover;
+  height: 300px; */
+}
+
+.well {
+  background-color: #FF8655;
+}
+
+ul {
+  font-size: 30px;
+
+}
+
+h1 {
+  font-weight:bold;
+}
+
+.add-pizza {
+  margin-top: 30px;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.place-order {
+  margin-top: 30px;
+  /* margin-left: 45%;
+  margin-right: 45%; */
+  float: right;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+#checkout {
+  display:none;
 }
